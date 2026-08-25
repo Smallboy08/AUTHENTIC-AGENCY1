@@ -1,3 +1,7 @@
+/* =====================================
+   Authentic Agency - styles.css
+   Complete design system
+===================================== */
 
 :root {
   --sand: #DBD3C9;
@@ -75,7 +79,9 @@ button {
   border-radius: 8px;
 }
 
-
+/* =====================================
+   Typography
+===================================== */
 
 h1, h2, h3, h4 {
   font-family: "Grown", "Fraunces", Georgia, serif;
@@ -104,7 +110,7 @@ p {
 .kicker {
   display: inline-block;
   margin-bottom: 0.8rem;
-  color: var(--blue);
+  color: var(--accent, var(--blue));
   font-size: 0.85rem;
   font-weight: 700;
   letter-spacing: 0.14em;
@@ -123,6 +129,14 @@ p {
 .section-head h2 {
   margin-bottom: 0.8rem;
 }
+
+/* =====================================
+   Division accents (one brand, subtle distinction)
+===================================== */
+
+body.division-talent { --accent: var(--blue); }
+body.division-events { --accent: var(--ink); }
+body.division-wellness { --accent: var(--olive); }
 
 /* =====================================
    Buttons
@@ -159,6 +173,21 @@ p {
 .btn-light {
   background: var(--white);
   color: var(--ink);
+}
+
+/* =====================================
+   Logos
+===================================== */
+
+.brand-logo {
+  height: 40px;
+  width: auto;
+}
+
+.page-logo {
+  max-width: 180px;
+  height: auto;
+  margin-bottom: 1.25rem;
 }
 
 /* =====================================
@@ -222,7 +251,7 @@ p {
 
 .menu a:hover,
 .menu a.active {
-  color: var(--blue);
+  color: var(--accent, var(--blue));
 }
 
 .menu a.active {
@@ -319,6 +348,18 @@ p {
   color: rgba(255, 255, 255, 0.82);
 }
 
+.section-wellness {
+  background: var(--olive);
+}
+
+.section-wellness h2 {
+  color: #fff;
+}
+
+.section-wellness p {
+  color: rgba(255, 255, 255, 0.88);
+}
+
 .cta-panel {
   display: flex;
   align-items: center;
@@ -365,7 +406,7 @@ p {
 }
 
 .card-link {
-  color: var(--blue);
+  color: var(--accent, var(--blue));
   font-weight: 700;
 }
 
@@ -383,6 +424,18 @@ p {
   text-align: center;
   padding: 1rem;
   font-weight: 700;
+}
+
+body.division-wellness .media-placeholder {
+  background:
+    linear-gradient(135deg, rgba(115, 128, 99, 0.85), rgba(205, 198, 186, 0.9)),
+    var(--taupe);
+}
+
+body.division-events .media-placeholder {
+  background:
+    linear-gradient(135deg, rgba(34, 34, 34, 0.82), rgba(2, 74, 105, 0.82)),
+    var(--taupe);
 }
 
 .list {
@@ -413,8 +466,145 @@ p {
   margin-bottom: 0.8rem;
 }
 
+.chip-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+}
+
+.chip {
+  padding: 0.5rem 0.9rem;
+  border-radius: 999px;
+  background: rgba(115, 128, 99, 0.14);
+  font-weight: 600;
+  font-size: 0.9rem;
+}
+
 /* =====================================
-   Forms (used from Day 12)
+   Accordion (Services page, Day 9)
+===================================== */
+
+.accordion {
+  border: 1px solid rgba(34, 34, 34, 0.1);
+  border-radius: var(--radius-small);
+  background: var(--white);
+  overflow: hidden;
+}
+
+.accordion + .accordion {
+  margin-top: 1rem;
+}
+
+.accordion-toggle {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.1rem 1.25rem;
+  background: none;
+  border: none;
+  font-weight: 700;
+  font-size: 1.05rem;
+  text-align: left;
+}
+
+.accordion-toggle::after {
+  content: "+";
+  font-size: 1.4rem;
+  color: var(--blue);
+}
+
+.accordion.open .accordion-toggle::after {
+  content: "–";
+}
+
+.accordion-panel {
+  display: none;
+  padding: 0 1.25rem 1.25rem;
+}
+
+.accordion.open .accordion-panel {
+  display: block;
+}
+
+/* =====================================
+   Portfolio filter (Day 11)
+===================================== */
+
+.filter-bar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  margin-bottom: 1.5rem;
+}
+
+.filter-btn {
+  padding: 0.55rem 1rem;
+  border-radius: 999px;
+  border: 1px solid rgba(34, 34, 34, 0.2);
+  background: var(--white);
+  font-weight: 600;
+}
+
+.filter-btn.active {
+  background: var(--blue);
+  color: var(--white);
+  border-color: var(--blue);
+}
+
+.hidden {
+  display: none;
+}
+
+/* =====================================
+   Scroll reveal (Day 7)
+===================================== */
+
+.reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.reveal.visible {
+  opacity: 1;
+  transform: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}
+
+/* =====================================
+   Back to top (Day 14)
+===================================== */
+
+.back-to-top {
+  position: fixed;
+  right: 1.25rem;
+  bottom: 1.25rem;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: var(--blue);
+  color: var(--white);
+  border: none;
+  display: none;
+  z-index: 90;
+}
+
+.back-to-top.show {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* =====================================
+   Forms
 ===================================== */
 
 .contact-grid {
@@ -471,6 +661,11 @@ textarea {
   margin-top: 0.3rem;
 }
 
+.honeypot {
+  position: absolute;
+  left: -9999px;
+}
+
 .field-error {
   min-height: 1.3rem;
   margin-top: 0.35rem;
@@ -490,6 +685,12 @@ textarea {
 
 .form-message.success { color: #1d5c3a; }
 .form-message.error { color: #8f1d1d; }
+
+.char-count {
+  font-size: 0.85rem;
+  color: #666;
+  text-align: right;
+}
 
 /* =====================================
    Footer
@@ -623,5 +824,23 @@ textarea:focus-visible {
 
   .footer-bottom {
     flex-direction: column;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero {
+    padding: 3rem 0 2rem;
+  }
+
+  .hero-actions .btn {
+    width: 100%;
+  }
+
+  .card {
+    padding: 1.25rem;
+  }
+
+  .header-inner {
+    padding: 0.75rem 0;
   }
 }
