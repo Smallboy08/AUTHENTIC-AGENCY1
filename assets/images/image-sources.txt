@@ -1,0 +1,21 @@
+AUTHENTIC AGENCY - IMAGE SOURCE LOG
+
+Approved by supervisor - Client-owned images only
+Final high-resolution assets to be supplied by the client before public launch.
+
+WORKING SOURCES:
+
+* Talent/Events: https://www.instagram.com/authentictalentza/
+* Wellness: https://www.instagram.com/authenticwellness_sa/
+* Product: https://www.instagram.com/authenticallsort/
+
+FILE NAMING:
+
+* Talent/Events: talent-01.jpg, talent-02.jpg, etc.
+* Wellness: wellness-01.jpg, wellness-02.jpg, etc.
+* Product: product-01.jpg, product-02.jpg, etc.
+
+LOG FORMAT:
+filename | source post URL | date | used in
+
+--- LOG ---
