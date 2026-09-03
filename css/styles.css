@@ -1,0 +1,846 @@
+/* =====================================
+   Authentic Agency - styles.css
+   Complete design system
+===================================== */
+
+:root {
+  --sand: #DBD3C9;
+  --taupe: #CDC6BA;
+  --olive: #738063;
+  --blue: #024A69;
+  --ink: #222222;
+  --white: #ffffff;
+
+  --container: 1120px;
+  --radius: 24px;
+  --radius-small: 16px;
+  --shadow: 0 10px 30px rgba(34, 34, 34, 0.08);
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: "Be Vietnam Pro", Arial, sans-serif;
+  background: var(--sand);
+  color: var(--ink);
+  line-height: 1.6;
+  min-height: 100vh;
+}
+
+img,
+svg {
+  max-width: 100%;
+  display: block;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+ul,
+ol {
+  list-style: none;
+}
+
+button {
+  font: inherit;
+  cursor: pointer;
+}
+
+.container {
+  width: min(92%, var(--container));
+  margin-inline: auto;
+}
+
+.skip-link {
+  position: absolute;
+  left: -9999px;
+  top: auto;
+}
+
+.skip-link:focus {
+  left: 1rem;
+  top: 1rem;
+  background: var(--white);
+  color: var(--ink);
+  padding: 0.8rem 1rem;
+  z-index: 999;
+  border-radius: 8px;
+}
+
+/* =====================================
+   Typography
+===================================== */
+
+h1, h2, h3, h4 {
+  font-family: "Grown", "Fraunces", Georgia, serif;
+  line-height: 1.05;
+  overflow-wrap: break-word;
+}
+
+h1 {
+  font-size: clamp(2.6rem, 6vw, 5.2rem);
+  text-transform: lowercase;
+}
+
+h2 {
+  font-size: clamp(2rem, 4vw, 3.2rem);
+  text-transform: lowercase;
+}
+
+h3 {
+  font-size: 1.35rem;
+}
+
+p {
+  overflow-wrap: break-word;
+}
+
+.kicker {
+  display: inline-block;
+  margin-bottom: 0.8rem;
+  color: var(--accent, var(--blue));
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.kicker.light {
+  color: #d8e4ec;
+}
+
+.section-head {
+  max-width: 720px;
+  margin-bottom: 2rem;
+}
+
+.section-head h2 {
+  margin-bottom: 0.8rem;
+}
+
+/* =====================================
+   Division accents (one brand, subtle distinction)
+===================================== */
+
+body.division-talent { --accent: var(--blue); }
+body.division-events { --accent: var(--ink); }
+body.division-wellness { --accent: var(--olive); }
+
+/* =====================================
+   Buttons
+===================================== */
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 48px;
+  padding: 0.95rem 1.5rem;
+  border-radius: 999px;
+  border: 1px solid transparent;
+  font-weight: 600;
+  transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+.btn:hover {
+  opacity: 0.94;
+  transform: translateY(-1px);
+}
+
+.btn-primary {
+  background: var(--blue);
+  color: var(--white);
+}
+
+.btn-secondary {
+  border-color: var(--ink);
+  color: var(--ink);
+  background: transparent;
+}
+
+.btn-light {
+  background: var(--white);
+  color: var(--ink);
+}
+
+/* =====================================
+   Logos
+===================================== */
+
+.brand-logo {
+  height: 40px;
+  width: auto;
+}
+
+.page-logo {
+  max-width: 180px;
+  height: auto;
+  margin-bottom: 1.25rem;
+}
+
+/* =====================================
+   Header and Navigation
+===================================== */
+
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: rgba(219, 211, 201, 0.95);
+  backdrop-filter: blur(8px);
+  border-bottom: 1px solid rgba(34, 34, 34, 0.08);
+}
+
+.site-header.scrolled {
+  box-shadow: 0 6px 24px rgba(34, 34, 34, 0.1);
+}
+
+.header-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 0.9rem 0;
+}
+
+.brand {
+  font-size: 1.2rem;
+  font-weight: 700;
+  text-transform: lowercase;
+}
+
+.brand strong {
+  color: var(--blue);
+}
+
+.nav-toggle {
+  display: none;
+  border: 1px solid rgba(34, 34, 34, 0.2);
+  background: var(--white);
+  border-radius: 999px;
+  padding: 0.7rem 1rem;
+  font-weight: 600;
+}
+
+.site-nav {
+  display: block;
+}
+
+.menu {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.menu a {
+  padding: 0.5rem 0.25rem;
+  font-weight: 500;
+}
+
+.menu a:hover,
+.menu a.active {
+  color: var(--accent, var(--blue));
+}
+
+.menu a.active {
+  font-weight: 700;
+}
+
+/* =====================================
+   Hero and Page Hero
+===================================== */
+
+.hero {
+  padding: 4.5rem 0 3rem;
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.25), rgba(255, 255, 255, 0)),
+    var(--sand);
+}
+
+.hero-inner {
+  display: grid;
+  grid-template-columns: 1.15fr 0.85fr;
+  gap: 2rem;
+  align-items: center;
+}
+
+.hero-copy h1 {
+  margin-bottom: 1rem;
+}
+
+.hero-copy p {
+  max-width: 56ch;
+  margin-bottom: 1.75rem;
+  font-size: 1.05rem;
+}
+
+.hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.hero-panel {
+  min-height: 340px;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  background:
+    linear-gradient(135deg, rgba(2, 74, 105, 0.82), rgba(115, 128, 99, 0.82)),
+    var(--taupe);
+  color: var(--white);
+  display: flex;
+  align-items: flex-end;
+  padding: 1.5rem;
+  font-weight: 600;
+}
+
+.page-hero {
+  padding: 4rem 0 2rem;
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.25), rgba(255, 255, 255, 0)),
+    var(--sand);
+  border-bottom: 1px solid rgba(34, 34, 34, 0.06);
+}
+
+.page-hero h1 {
+  margin: 0.5rem 0 1rem;
+}
+
+.page-hero p {
+  max-width: 72ch;
+}
+
+/* =====================================
+   Sections
+===================================== */
+
+.section {
+  padding: 4rem 0;
+}
+
+.section-alt {
+  background: rgba(255, 255, 255, 0.28);
+}
+
+.section-dark {
+  background: var(--ink);
+  color: #efedeb;
+}
+
+.section-dark h2,
+.section-dark h3 {
+  color: var(--white);
+}
+
+.section-dark p {
+  color: rgba(255, 255, 255, 0.82);
+}
+
+.section-wellness {
+  background: var(--olive);
+}
+
+.section-wellness h2 {
+  color: #fff;
+}
+
+.section-wellness p {
+  color: rgba(255, 255, 255, 0.88);
+}
+
+.cta-panel {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2rem;
+}
+
+/* =====================================
+   Grids and Cards
+===================================== */
+
+.grid-2,
+.grid-3,
+.grid-4 {
+  display: grid;
+  gap: 1.25rem;
+}
+
+.grid-2 { grid-template-columns: repeat(2, 1fr); }
+.grid-3 { grid-template-columns: repeat(3, 1fr); }
+.grid-4 { grid-template-columns: repeat(4, 1fr); }
+
+.split {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 2rem;
+  align-items: start;
+}
+
+.card {
+  background: rgba(255, 255, 255, 0.66);
+  border: 1px solid rgba(34, 34, 34, 0.08);
+  border-radius: var(--radius);
+  padding: 1.5rem;
+  box-shadow: var(--shadow);
+}
+
+.card h3 {
+  margin-bottom: 0.8rem;
+}
+
+.card p {
+  margin-bottom: 1rem;
+}
+
+.card-link {
+  color: var(--accent, var(--blue));
+  font-weight: 700;
+}
+
+.media-placeholder {
+  min-height: 220px;
+  margin-bottom: 1rem;
+  border-radius: calc(var(--radius) - 8px);
+  background:
+    linear-gradient(135deg, rgba(2, 74, 105, 0.82), rgba(115, 128, 99, 0.82)),
+    var(--taupe);
+  color: var(--white);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 1rem;
+  font-weight: 700;
+}
+
+body.division-wellness .media-placeholder {
+  background:
+    linear-gradient(135deg, rgba(115, 128, 99, 0.85), rgba(205, 198, 186, 0.9)),
+    var(--taupe);
+}
+
+body.division-events .media-placeholder {
+  background:
+    linear-gradient(135deg, rgba(34, 34, 34, 0.82), rgba(2, 74, 105, 0.82)),
+    var(--taupe);
+}
+
+.list {
+  list-style: disc;
+  padding-left: 1.2rem;
+}
+
+.list li {
+  margin: 0.5rem 0;
+}
+
+.notice {
+  background: var(--white);
+  border: 1px solid rgba(34, 34, 34, 0.08);
+  border-radius: var(--radius-small);
+  padding: 1rem 1.25rem;
+  margin-bottom: 1.5rem;
+}
+
+.badge {
+  display: inline-block;
+  padding: 0.4rem 0.8rem;
+  border-radius: 999px;
+  background: rgba(2, 74, 105, 0.09);
+  color: var(--blue);
+  font-size: 0.85rem;
+  font-weight: 700;
+  margin-bottom: 0.8rem;
+}
+
+.chip-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+}
+
+.chip {
+  padding: 0.5rem 0.9rem;
+  border-radius: 999px;
+  background: rgba(115, 128, 99, 0.14);
+  font-weight: 600;
+  font-size: 0.9rem;
+}
+
+/* =====================================
+   Accordion (Services page, Day 9)
+===================================== */
+
+.accordion {
+  border: 1px solid rgba(34, 34, 34, 0.1);
+  border-radius: var(--radius-small);
+  background: var(--white);
+  overflow: hidden;
+}
+
+.accordion + .accordion {
+  margin-top: 1rem;
+}
+
+.accordion-toggle {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.1rem 1.25rem;
+  background: none;
+  border: none;
+  font-weight: 700;
+  font-size: 1.05rem;
+  text-align: left;
+}
+
+.accordion-toggle::after {
+  content: "+";
+  font-size: 1.4rem;
+  color: var(--blue);
+}
+
+.accordion.open .accordion-toggle::after {
+  content: "–";
+}
+
+.accordion-panel {
+  display: none;
+  padding: 0 1.25rem 1.25rem;
+}
+
+.accordion.open .accordion-panel {
+  display: block;
+}
+
+/* =====================================
+   Portfolio filter (Day 11)
+===================================== */
+
+.filter-bar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  margin-bottom: 1.5rem;
+}
+
+.filter-btn {
+  padding: 0.55rem 1rem;
+  border-radius: 999px;
+  border: 1px solid rgba(34, 34, 34, 0.2);
+  background: var(--white);
+  font-weight: 600;
+}
+
+.filter-btn.active {
+  background: var(--blue);
+  color: var(--white);
+  border-color: var(--blue);
+}
+
+.hidden {
+  display: none;
+}
+
+/* =====================================
+   Scroll reveal (Day 7)
+===================================== */
+
+.reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.reveal.visible {
+  opacity: 1;
+  transform: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}
+
+/* =====================================
+   Back to top (Day 14)
+===================================== */
+
+.back-to-top {
+  position: fixed;
+  right: 1.25rem;
+  bottom: 1.25rem;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: var(--blue);
+  color: var(--white);
+  border: none;
+  display: none;
+  z-index: 90;
+}
+
+.back-to-top.show {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* =====================================
+   Forms
+===================================== */
+
+.contact-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.2fr;
+  gap: 2rem;
+  align-items: start;
+}
+
+.form-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+}
+
+.field.full {
+  grid-column: 1 / -1;
+}
+
+label {
+  display: block;
+  font-weight: 600;
+  margin-bottom: 0.4rem;
+}
+
+input,
+select,
+textarea {
+  width: 100%;
+  min-height: 50px;
+  padding: 0.9rem 1rem;
+  border: 1px solid rgba(34, 34, 34, 0.18);
+  border-radius: var(--radius-small);
+  background: var(--white);
+  color: var(--ink);
+  font: inherit;
+}
+
+textarea {
+  min-height: 160px;
+  resize: vertical;
+}
+
+.checkbox-label {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+  font-weight: 500;
+}
+
+.checkbox-label input {
+  width: auto;
+  min-height: auto;
+  margin-top: 0.3rem;
+}
+
+.honeypot {
+  position: absolute;
+  left: -9999px;
+}
+
+.field-error {
+  min-height: 1.3rem;
+  margin-top: 0.35rem;
+  color: #8f1d1d;
+  font-size: 0.9rem;
+}
+
+.invalid {
+  border-color: #b42323;
+  background: #fff7f7;
+}
+
+.form-message {
+  margin-top: 1rem;
+  font-weight: 700;
+}
+
+.form-message.success { color: #1d5c3a; }
+.form-message.error { color: #8f1d1d; }
+
+.char-count {
+  font-size: 0.85rem;
+  color: #666;
+  text-align: right;
+}
+
+/* =====================================
+   Footer
+===================================== */
+
+.site-footer {
+  background: var(--ink);
+  color: #ddd;
+  padding: 3rem 0 1.5rem;
+  margin-top: 4rem;
+}
+
+.footer-grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr;
+  gap: 2rem;
+}
+
+.site-footer h3,
+.site-footer h4 {
+  color: var(--white);
+  margin-bottom: 1rem;
+}
+
+.site-footer p {
+  margin-bottom: 0.75rem;
+}
+
+.footer-list {
+  display: grid;
+  gap: 0.65rem;
+}
+
+.site-footer a:hover {
+  color: var(--white);
+  text-decoration: underline;
+}
+
+.footer-bottom {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 1rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.12);
+  margin-top: 2rem;
+  padding-top: 1rem;
+  color: #bbb;
+}
+
+/* =====================================
+   Focus and Accessibility
+===================================== */
+
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible {
+  outline: 3px solid var(--blue);
+  outline-offset: 2px;
+}
+
+/* =====================================
+   Responsive
+===================================== */
+
+@media (max-width: 1020px) {
+  .grid-4 { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 900px) {
+  .hero-inner,
+  .split,
+  .contact-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .grid-3,
+  .grid-4 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .nav-toggle {
+    display: inline-flex;
+  }
+
+  .site-nav {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    display: none;
+    background: var(--sand);
+    border-bottom: 1px solid rgba(34, 34, 34, 0.12);
+    padding: 1rem 0;
+    box-shadow: var(--shadow);
+  }
+
+  .site-nav.open {
+    display: block;
+  }
+
+  .menu {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.85rem;
+    width: 92%;
+    margin-inline: auto;
+  }
+}
+
+@media (max-width: 700px) {
+  .grid-2,
+  .grid-3,
+  .grid-4 {
+    grid-template-columns: 1fr;
+  }
+
+  .form-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .cta-panel {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .footer-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .footer-bottom {
+    flex-direction: column;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero {
+    padding: 3rem 0 2rem;
+  }
+
+  .hero-actions .btn {
+    width: 100%;
+  }
+
+  .card {
+    padding: 1.25rem;
+  }
+
+  .header-inner {
+    padding: 0.75rem 0;
+  }
+}
